@@ -23,7 +23,6 @@ const fetchPokemon = async (pokemon) => {
 const renderPokemon = async (pokemon) => {
 
     pokemonName.innerHTML = 'Loading...'
-    pokemonNumber.innerHTML = ''
     
     const data = await fetchPokemon(pokemon);
 
@@ -61,8 +60,10 @@ btnPrev.addEventListener('click', () => {
 })
 
 btnNext.addEventListener('click', () => {
-    searchPokemon += 1;
-    renderPokemon(searchPokemon);
+    if(searchPokemon < 905){
+        searchPokemon += 1;
+        renderPokemon(searchPokemon);
+    }
 })
 
 renderPokemon(searchPokemon);
